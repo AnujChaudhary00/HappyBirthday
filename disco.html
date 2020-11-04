@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"
+<script src="jquery.fireworks.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<style> 
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  overflow: hidden;
+	
+ }
+
+.pyro > .before, .pyro > .after {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  box-shadow: -120px -218.66667px blue, 248px -16.66667px #00ff84, 190px 16.33333px #002bff, -113px -308.66667px #ff009d, -109px -287.66667px #ffb300, -50px -313.66667px #ff006e, 226px -31.66667px #ff4000, 180px -351.66667px #ff00d0, -12px -338.66667px #00f6ff, 220px -388.66667px #99ff00, -69px -27.66667px #ff0400, -111px -339.66667px #6200ff, 155px -237.66667px #00ddff, -152px -380.66667px #00ffd0, -50px -37.66667px #00ffdd, -95px -175.66667px #a6ff00, -88px 10.33333px #0d00ff, 112px -309.66667px #005eff, 69px -415.66667px #ff00a6, 168px -100.66667px #ff004c, -244px 24.33333px #ff6600, 97px -325.66667px #ff0066, -211px -182.66667px #00ffa2, 236px -126.66667px #b700ff, 140px -196.66667px #9000ff, 125px -175.66667px #00bbff, 118px -381.66667px #ff002f, 144px -111.66667px #ffae00, 36px -78.66667px #f600ff, -63px -196.66667px #c800ff, -218px -227.66667px #d4ff00, -134px -377.66667px #ea00ff, -36px -412.66667px #ff00d4, 209px -106.66667px #00fff2, 91px -278.66667px #000dff, -22px -191.66667px #9dff00, 139px -392.66667px #a6ff00, 56px -2.66667px #0099ff, -156px -276.66667px #ea00ff, -163px -233.66667px #00fffb, -238px -346.66667px #00ff73, 62px -363.66667px #0088ff, 244px -170.66667px #0062ff, 224px -142.66667px #b300ff, 141px -208.66667px #9000ff, 211px -285.66667px #ff6600, 181px -128.66667px #1e00ff, 90px -123.66667px #c800ff, 189px 70.33333px #00ffc8, -18px -383.66667px #00ff33, 100px -6.66667px #ff008c;
+  -moz-animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  -webkit-animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  -o-animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  -ms-animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards; }
+
+.pyro > .after {
+  -moz-animation-delay: 1.25s, 1.25s, 1.25s;
+  -webkit-animation-delay: 1.25s, 1.25s, 1.25s;
+  -o-animation-delay: 1.25s, 1.25s, 1.25s;
+  -ms-animation-delay: 1.25s, 1.25s, 1.25s;
+  animation-delay: 1.25s, 1.25s, 1.25s;
+  -moz-animation-duration: 1.25s, 1.25s, 6.25s;
+  -webkit-animation-duration: 1.25s, 1.25s, 6.25s;
+  -o-animation-duration: 1.25s, 1.25s, 6.25s;
+  -ms-animation-duration: 1.25s, 1.25s, 6.25s;
+  animation-duration: 1.25s, 1.25s, 6.25s; }
+
+@-webkit-keyframes bang {
+  from {
+    box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white; } }
+@-moz-keyframes bang {
+  from {
+    box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white; } }
+@-o-keyframes bang {
+  from {
+    box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white; } }
+@-ms-keyframes bang {
+  from {
+    box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white; } }
+@keyframes bang {
+  from {
+    box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white; } }
+@-webkit-keyframes gravity {
+  to {
+    transform: translateY(200px);
+    -moz-transform: translateY(200px);
+    -webkit-transform: translateY(200px);
+    -o-transform: translateY(200px);
+    -ms-transform: translateY(200px);
+    opacity: 0; } }
+@-moz-keyframes gravity {
+  to {
+    transform: translateY(200px);
+    -moz-transform: translateY(200px);
+    -webkit-transform: translateY(200px);
+    -o-transform: translateY(200px);
+    -ms-transform: translateY(200px);
+    opacity: 0; } }
+@-o-keyframes gravity {
+  to {
+    transform: translateY(200px);
+    -moz-transform: translateY(200px);
+    -webkit-transform: translateY(200px);
+    -o-transform: translateY(200px);
+    -ms-transform: translateY(200px);
+    opacity: 0; } }
+@-ms-keyframes gravity {
+  to {
+    transform: translateY(200px);
+    -moz-transform: translateY(200px);
+    -webkit-transform: translateY(200px);
+    -o-transform: translateY(200px);
+    -ms-transform: translateY(200px);
+    opacity: 0; } }
+@keyframes gravity {
+  to {
+    transform: translateY(200px);
+    -moz-transform: translateY(200px);
+    -webkit-transform: translateY(200px);
+    -o-transform: translateY(200px);
+    -ms-transform: translateY(200px);
+    opacity: 0; } }
+@-webkit-keyframes position {
+  0%, 19.9% {
+    margin-top: 10%;
+    margin-left: 40%; }
+
+  20%, 39.9% {
+    margin-top: 40%;
+    margin-left: 30%; }
+
+  40%, 59.9% {
+    margin-top: 20%;
+    margin-left: 70%; }
+
+  60%, 79.9% {
+    margin-top: 30%;
+    margin-left: 20%; }
+
+  80%, 99.9% {
+    margin-top: 30%;
+    margin-left: 80%; } }
+@-moz-keyframes position {
+  0%, 19.9% {
+    margin-top: 10%;
+    margin-left: 40%; }
+
+  20%, 39.9% {
+    margin-top: 40%;
+    margin-left: 30%; }
+
+  40%, 59.9% {
+    margin-top: 20%;
+    margin-left: 70%; }
+
+  60%, 79.9% {
+    margin-top: 30%;
+    margin-left: 20%; }
+
+  80%, 99.9% {
+    margin-top: 30%;
+    margin-left: 80%; } }
+@-o-keyframes position {
+  0%, 19.9% {
+    margin-top: 10%;
+    margin-left: 40%; }
+
+  20%, 39.9% {
+    margin-top: 40%;
+    margin-left: 30%; }
+
+  40%, 59.9% {
+    margin-top: 20%;
+    margin-left: 70%; }
+
+  60%, 79.9% {
+    margin-top: 30%;
+    margin-left: 20%; }
+
+  80%, 99.9% {
+    margin-top: 30%;
+    margin-left: 80%; } }
+@-ms-keyframes position {
+  0%, 19.9% {
+    margin-top: 10%;
+    margin-left: 40%; }
+
+  20%, 39.9% {
+    margin-top: 40%;
+    margin-left: 30%; }
+
+  40%, 59.9% {
+    margin-top: 20%;
+    margin-left: 70%; }
+
+  60%, 79.9% {
+    margin-top: 30%;
+    margin-left: 20%; }
+
+  80%, 99.9% {
+    margin-top: 30%;
+    margin-left: 80%; } }
+@keyframes position {
+  0%, 19.9% {
+    margin-top: 10%;
+    margin-left: 40%; }
+
+  20%, 39.9% {
+    margin-top: 40%;
+    margin-left: 30%; }
+
+  40%, 59.9% {
+    margin-top: 20%;
+    margin-left: 70%; }
+
+  60%, 79.9% {
+    margin-top: 30%;
+    margin-left: 20%; }
+
+  80%, 99.9% {
+    margin-top: 30%;
+    margin-left: 80%; } }
+
+.baloon
+{
+    width:50px;
+    height:50px;
+    border: solid 5px black;
+    border-radius:30px;
+    margin:15px;
+    display:inline-flex;
+}
+
+.container
+{
+background:black;
+height:550px;
+}
+#cake
+{
+	margin-left:40%;
+	margin-top:10%;
+   	 text-align:center;
+	display:block;
+	position:absolute;
+	bottom:0px;
+}
+#layer1
+{
+	width:120px;
+    height:50px;
+    background-color:#00ACC1;
+    margin-left:40px;
+   box-sizing:border-box;
+    border-radius:10px 10px 0px 0px;
+	font-size:30px;
+	color:#006064;
+
+}
+#layer2
+{
+	width:150px;
+    height:50px;
+    background-color:#FFEB3B;
+    margin-left:25px;
+     border-radius:10px 10px 0px 0px;
+	font-size:30px;
+	color:#FF8F00;
+
+}
+
+#layer3
+{
+	width:200px;
+    height:50px;
+    background-color:#b71c1c;
+    margin-left:1px;
+     border-radius:10px 10px 0px 0px;
+	font-size:30px;
+	color:#d50000;
+
+}
+
+button
+{
+	background-color:black;
+	box-shadow:2px 2x 15px grey;
+	border:0px;
+	color:white;
+	font-size:20px;
+}
+
+.can
+{
+height:20px;
+width:2px;
+background-color:black;
+color:yellow;
+font-size:20px;
+text-shadow: 0px 0px 15px #FFF176;
+}
+#candle
+{
+	width:10px;
+    height:20px;
+    background-color:black;
+    margin-left:40%;
+}
+
+.fire
+{
+	width:100%;
+	height:100%;
+	background-color:grey;
+}
+
+button:hover
+{
+	box-shadow: 0px 2px 20px grey;
+}
+
+#body2
+{
+	visibility:hidden;
+}
+.wish
+{
+	text-align:center;
+	margin-top:100px;
+		
+	
+}
+
+
+
+.hpbd{
+  font-size: 100px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff ,0 0 20px #fff, 0 0 30px #FFC107, 0 0 40px #FFC107, 0 0 50px #FFC107, 0 0 60px #FFC107, 0 0 70px #FFC107;
+	font-size:120px;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #FF8F00, 0 0 40px #FF8F00, 0 0 50px #FF8F00, 0 0 60px #FF8F00, 0 0 70px #FF8F00, 0 0 80px #FF8F00;
+	transform:scale(1.5);
+font-size:100px;
+  }
+}
+
+</style>
+</head>
+<body>
+<button onclick="cll()" style="position:relative; left:45%;">CLICK TO SUPRISE</button>
+<div id="body2">
+<br>
+
+	  <div class="pyro">
+    		<div class="before"> 
+		</div>
+   		 <div class="after"></div>
+	  </div>
+<hr style="color:white;	">
+<section class="container">
+<div class="baloon"> </div>
+<div class="baloon"> </div>
+<div class="baloon"> </div>
+<div class="baloon"> </div>
+<div class="baloon"> </div>
+<div class="baloon"> </div>
+<div class="baloon"> </div>
+<div class="baloon"> </div>
+<div class="baloon"> </div>
+<div class="baloon"> </div>
+<div class="baloon"> </div>
+<div class="baloon"> </div>
+<div class="baloon"> </div>
+<div class="baloon"> </div>
+
+
+<br><br>
+<div class="wish">
+<span class="hpbd">H</span><span class="hpbd">A</span><span class="hpbd">P</span><span class="hpbd">P</span><span class="hpbd">Y</span>
+&nbsp;<span class="hpbd">B</span><span class="hpbd">I</span><span class="hpbd">R</span><span class="hpbd">T</span><span class="hpbd">H</span><span class="hpbd">D</span><span class="hpbd">A</span><span class="hpbd">Y</span>
+</div>
+<div id="cake">
+
+<div id="candle">
+<span class="can">i</span class="can">i<span class="can">i</span>i<span class="can">i</span>i<span class="can">i</span>
+</div>
+
+<div id="layer1">O</div>
+<div id="layer2">O ** O</div>
+<div id="layer3">O ** O ** O </div>
+</div>
+
+
+</section>
+
+
+<section class="fire">
+
+</section>
+</div>
+</body>
+<script>
+
+
+function cll()
+{
+	document.getElementById("body2").style.visibility="visible";
+setInterval(function ()
+{
+
+	document.getElementsByClassName("baloon")[0].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[1].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[2].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[3].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[4].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[5].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[6].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[7].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[2].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[8].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[9].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[10].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[11].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[12].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[13].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[14].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[15].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[16].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[17].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[18].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[19].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[20].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[21].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[22].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[23].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[24].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[25].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[26].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[27].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[28].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[29].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[30].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[31].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[32].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+
+setInterval(function ()
+{
+	document.getElementsByClassName("baloon")[33].style.backgroundColor=`rgb(${Math.floor((Math.random() * 1000) + 10)},${Math.floor((Math.random() * 1000) + 12)},${Math.floor((Math.random() * 1000) + 15)})`;
+},500);
+
+
+
+
+
+
+}
+
+
+</script>
+</html>
